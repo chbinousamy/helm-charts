@@ -3,7 +3,7 @@ entries:
   first:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-03-03T14:49:07.342823+01:00"
+    created: "2023-03-03T22:53:26.74808+01:00"
     description: A Helm chart for Kubernetes
     digest: 487528f3777971eff02430983502b57c7b537a6afccc496bb53e7c5baa98d16f
     name: first
@@ -14,7 +14,18 @@ entries:
   stress:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-03-03T14:49:07.343425+01:00"
+    created: "2023-03-03T22:53:26.751176+01:00"
+    description: A Helm chart to stress test Kubernetes
+    digest: 971d7572aa5d126e85270749780aeaf0c753a999dadfba935a8ad3e6ca4c5525
+    icon: https://helm.sh/img/helm.svg
+    name: stress
+    type: application
+    urls:
+    - https://chbinousamy.github.io/helm-charts/stress-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-03-03T22:53:26.750637+01:00"
     description: A Helm chart for Kubernetes
     digest: e6a3ca191a66c41ebb8fa947004519ef983fc50eaee335f5f71d9e8633ae1519
     name: stress
@@ -22,4 +33,4 @@ entries:
     urls:
     - https://chbinousamy.github.io/helm-charts/stress-0.1.0.tgz
     version: 0.1.0
-generated: "2023-03-03T14:49:07.341428+01:00"
+generated: "2023-03-03T22:53:26.747177+01:00"
