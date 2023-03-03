@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  stress:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-03-03T11:46:24.610195+01:00"
+    description: A Helm chart for Kubernetes
+    digest: f50e656baf801b58749f10a31ccc76e37bfd5770f8130f61cd4598f77ac52c0d
+    name: stress
+    type: application
+    urls:
+    - https://github.com/chbinousamy/helm-charts.git/stress-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-03-03T11:46:24.609183+01:00"
