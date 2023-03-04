@@ -1,0 +1,22 @@
+# https://manpages.ubuntu.com/manpages/bionic/man1/stress-ng.1.html
+
+run sequential   # run stressors sequetially, not in parallel
+verbose          # verbose output
+metrics-brief    # show metrics at end of run
+timeout 10s      # stop each stressor after 60 seconds
+#
+# cpu stressor options:
+#
+cpu 10
+cpu-method all
+#
+# vm stressor options:
+#
+vm 2             # 2 vm stressors
+vm-bytes 128M    # 128MB available memory
+vm-keep          # keep vm mapping
+vm-populate      # populate memory
+#
+# memcpy stressor options:
+#
+memcpy 5         # 5 memcpy stressors
