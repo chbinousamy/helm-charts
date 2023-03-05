@@ -33,7 +33,6 @@ jobs:
           cd ${{ github.workspace }}/docker-images/stress
           docker buildx create --use
           docker buildx build --platform linux/amd64,linux/arm64 -t samychbinou/docker-stress:${{ vars.DOCKER_TAG }} .
-      - run: echo "🍏 Build and Push to Docker Hub'status is ${{ job.status }}."
       - name: ⎈ Install Helm
         run: |
           cd ${{ github.workspace }}
@@ -44,7 +43,16 @@ jobs:
       - name: ⎈ Package Helm Chart
         run: |
           sed -i 's/DOCKER_TAGTEST/${{ vars.DOCKER_TAG }}/g' charts/stress/Chart.yaml charts/stress/values.yaml
-          #cat charts/stress/Chart.yaml charts/stress/values.yaml
+          # cat charts/stress/Chart.yaml charts/stress/values.yaml
           helm package charts/stress
           helm repo index --url https://chbinousamy.github.io/helm-charts/ --merge index.yaml .
-          cat index.yaml
+          # cat index.yaml
+      - name: Deploy Docker Image and Helm Chart
+        run: |
+          cd ${{ github.workspace }}/docker-images/stress
+          docker push samychbinou/docker-stress:${{ vars.DOCKER_TAG }}
+          cd ${{ github.workspace }}
+          git add .
+          git commit -m "Add stress Chart version ${{ vars.DOCKER_TAG }}"
+          git push
+      
