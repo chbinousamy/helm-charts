@@ -38,6 +38,7 @@ jobs:
           cd ${{ github.workspace }}
           curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
           chmod 700 get_helm.sh
+          echo "get_helm.sh" > .gitignore
           ./get_helm.sh
           helm version
       - name: ⎈ Package Helm Chart
