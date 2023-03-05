@@ -25,7 +25,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and Push to Docker Hub
         run: |
-          cd ${{ github.workspace }}/charts/stress-docker
+          cd ${{ github.workspace }}/docker/stress
           docker buildx create --use
           docker buildx build --platform linux/amd64,linux/arm64 --push -t samychbinou/docker-stress:tagtest .
       - run: echo "🍏 This job's status is ${{ job.status }}."
