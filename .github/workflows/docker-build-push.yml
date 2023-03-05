@@ -42,7 +42,7 @@ jobs:
           ./get_helm.sh
           helm version
       - run: |
-          sed -i 's/DOCKER_TAG/${{ vars.DOCKER_TAG }}/g' charts/stress/Chart.yaml charts/stress/values.yaml
+          sed -i 's/0.2.0/${{ vars.DOCKER_TAG }}/g' charts/stress/Chart.yaml charts/stress/values.yaml
           cat charts/stress/Chart.yaml charts/stress/values.yaml
       #helm package charts/stress
           
