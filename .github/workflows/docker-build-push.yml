@@ -50,8 +50,8 @@ jobs:
       - name: 🚀 Deploy Helm Chart
         run: |
           cd ${{ github.workspace }}
-          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
-          git config --global user.email "username@users.noreply.github.com"
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git add .
           git commit -m "Add stress Chart version ${{ vars.DOCKER_TAG }}"
           git push
