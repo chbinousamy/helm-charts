@@ -1,5 +1,5 @@
 name: Docker Build Push
-run-name: ${{ github.actor }} is running [Docker Build Push]" 🚀
+run-name: ${{ github.actor }} is running [Docker Build Push]"  🐳
 #on:
 #  workflow_run:
 #    workflows: [Lint Code Base]
@@ -28,7 +28,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and Push to Docker Hub
+      - name:  🐳 🐳 🐳 Build and Push to Docker Hub  🐳 🐳 🐳
         run: |
           cd ${{ github.workspace }}/docker-images/stress
           docker buildx create --use
