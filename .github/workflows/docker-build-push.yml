@@ -28,14 +28,21 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: 🐳 Build and Push to Docker Hub
+      - name: 🐳 Build and Push Docker to dockerhub
         run: |
           cd ${{ github.workspace }}/docker-images/stress
           docker buildx create --use
           docker buildx build --platform linux/amd64,linux/arm64 --push -t samychbinou/docker-stress:${{ vars.DOCKER_TAG }} .
       - run: echo "🍏 Build and Push to Docker Hub'status is ${{ job.status }}."
+      - name: ⎈ Build and push Helm Chart
       - run: |
+          cd ${{ github.workspace }}
           curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
           chmod 700 get_helm.sh
           ./get_helm.sh
           helm version
+          sed -i 's/DOCKER_TAG/${{ vars.DOCKER_TAG }}/g' charts/stress/Chart.yaml charts/stress/values.yaml
+          cat charts/stress/Chart.yaml charts/stress/values.yaml
+          #helm package charts/stress
+          
+          
