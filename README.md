@@ -1,2 +1,2 @@
 # helm-charts
-helm charts repository
+helm charts source code repository
