@@ -47,9 +47,10 @@ jobs:
           helm package charts/stress
           helm repo index --url https://chbinousamy.github.io/helm-charts/ --merge index.yaml .
           # cat index.yaml
-      - name: Deploy Docker Image and Helm Chart
+      - name: 🚀 Deploy Docker Image and Helm Chart
         run: |
           cd ${{ github.workspace }}/docker-images/stress
+          docker images
           docker push samychbinou/docker-stress:${{ vars.DOCKER_TAG }}
           cd ${{ github.workspace }}
           git add .
