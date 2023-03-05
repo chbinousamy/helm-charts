@@ -32,7 +32,7 @@ jobs:
         run: |
           cd ${{ github.workspace }}/docker-images/stress
           docker buildx create --use
-          docker buildx build --platform linux/amd64,linux/arm64 -t samychbinou/docker-stress:${{ vars.DOCKER_TAG }} .
+          docker buildx build --platform linux/amd64,linux/arm64 --load -t samychbinou/docker-stress:${{ vars.DOCKER_TAG }} .
       - name: ⎈ Install Helm
         run: |
           cd ${{ github.workspace }}
