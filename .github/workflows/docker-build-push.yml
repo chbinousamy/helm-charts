@@ -35,7 +35,7 @@ jobs:
           docker buildx build --platform linux/amd64,linux/arm64 --push -t samychbinou/docker-stress:${{ vars.DOCKER_TAG }} .
       - run: echo "🍏 Build and Push to Docker Hub'status is ${{ job.status }}."
       - name: ⎈ Build and push Helm Chart
-      - run: |
+        run: |
           cd ${{ github.workspace }}
           curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
           chmod 700 get_helm.sh
