@@ -46,5 +46,7 @@ jobs:
           sed -i 's/DOCKER_TAGTEST/${{ vars.DOCKER_TAG }}/g' charts/stress/Chart.yaml charts/stress/values.yaml
           #cat charts/stress/Chart.yaml charts/stress/values.yaml
           helm package charts/stress
+          pwd
+          ls
           helm repo index --url https://chbinousamy.github.io/helm-charts/ --merge index.yaml .
           cat index.html
