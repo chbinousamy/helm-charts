@@ -1,9 +1,14 @@
 name: Docker Build Push
 run-name: ${{ github.actor }} is running [Docker Build Push]" 🚀
+#on:
+#  workflow_run:
+#    workflows: [Lint Code Base]
+#    types: [completed]
 on:
-  workflow_run:
-    workflows: [Lint Code Base]
-    types: [completed]
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
     
 jobs:
   Docker-Build-Push:
