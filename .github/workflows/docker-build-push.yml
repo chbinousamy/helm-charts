@@ -32,5 +32,5 @@ jobs:
         run: |
           cd ${{ github.workspace }}/docker-images/stress
           docker buildx create --use
-          docker buildx build --platform linux/amd64,linux/arm64 --push -t samychbinou/docker-stress:tagtest .
+          docker buildx build --platform linux/amd64,linux/arm64 --push -t samychbinou/docker-stress:${{ vars.DOCKER_TAG }} .
       - run: echo "🍏 This job's status is ${{ job.status }}."
