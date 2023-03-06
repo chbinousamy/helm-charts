@@ -28,13 +28,13 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v3
     - name: Create branch
-      run: git checkout -b ${{ env.BRANCH }}
+      run: git checkout -b $BRANCH
     - name: Initialize mandatory git config
       run: |
        git config user.name "GitHub Actions"
        git config user.email noreply@github.com
     - name: Add file with version number and name
-      run: printf 'ext.branch_type = "${{ github.event.inputs.branchType }}"\next.branch_name = "${{ github.event.inputs.branchName }}"\next.release_number = ${{ github.event.inputs.branchRelease }}\n' > branch_infos.txt
+      run: echo $BRANCH > branch_infos.txt
     - name: Commit changelog and manifest files
       id: make-commit
       run: |
