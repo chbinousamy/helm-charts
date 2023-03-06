@@ -44,8 +44,6 @@ jobs:
     - name: Push new branch
       run: git push origin $BRANCH
     - name: Create pull request into main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       uses: thomaseizinger/create-pull-request@master
       with:
        github_token: ${{ secrets.GITHUB_TOKEN }}
