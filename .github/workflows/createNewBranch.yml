@@ -26,7 +26,7 @@ jobs:
       BRANCH: ${{ inputs.branchType }}/${{ inputs.branchName }}/v${{ inputs.branchRelease }}
     steps:
     - name: Check out code
-      uses: actions/checkout@1.0.0
+      uses: actions/checkout@v3
     - name: Create branch
       run: git checkout -b $BRANCH
     - name: Initialize mandatory git config
