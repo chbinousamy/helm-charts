@@ -23,7 +23,9 @@ jobs:
   createNewBranch:
     runs-on: ubuntu-latest
     steps:
-    - env: 
+    - run: |
+        echo "Branch: $BRANCH"
+      env: 
         BRANCH: ${{ inputs.branchType }}/${{ inputs.branchName }}/v${{ inputs.branchRelease }}
     - name: Check out code
       uses: actions/checkout@v3
