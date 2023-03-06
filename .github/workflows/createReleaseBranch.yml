@@ -5,6 +5,7 @@ on:
       branchType:
         description: 'Type of branch'
         required: true
+        default: 'test'
         type: choice
         options:
         - test
@@ -12,15 +13,18 @@ on:
       branchName:
         description: 'Name of branch  (ie wip)'
         required: true
+        default: 'wip'
       branchRelease:
         description: 'Release number (0.1.1)'
         required: true
+        default: '0.1.1'
+
 jobs:
-  createbranch:
+  createNewBranch:
     runs-on: ubuntu-latest
     steps:
     - env: 
-        BRANCH: ${{ github.event.inputs.branchType }}/${{ github.event.inputs.branchName }}/v${{ github.event.inputs.branchRelease }}
+        BRANCH: ${{ inputs.branchType }}/${{ inputs.branchName }}/v${{ inputs.branchRelease }}
     - name: Check out code
       uses: actions/checkout@v3
     - name: Create branch
