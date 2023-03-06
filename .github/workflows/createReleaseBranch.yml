@@ -26,7 +26,7 @@ jobs:
     - name: Commit changelog and manifest files
       id: make-commit
       run: |
-        git add app_release.gradle
+        git add app_releases.gradle
         git commit --message "Prepare release ${{ github.event.inputs.releaseName }}"
         # echo "::set-output name=commit::$(git rev-parse HEAD)"
         echo "{commit}={$(git rev-parse HEAD)}" >> $GITHUB_OUTPUT
