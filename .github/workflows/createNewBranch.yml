@@ -48,7 +48,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       uses: thomaseizinger/create-pull-request@master
       with:
-       github-token: ${{ secrets.GITHUB_TOKEN }}
+       github_token: ${{ secrets.GITHUB_TOKEN }}
        head: $BRANCH
        base: main
        title: $BRANCH into main
