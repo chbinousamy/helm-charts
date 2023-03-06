@@ -30,7 +30,7 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v3
     - name: Create branch
-      run: git checkout -b $BRANCH
+      run: git checkout -b ${env.BRANCH}
     - name: Initialize mandatory git config
       run: |
        git config user.name "GitHub Actions"
