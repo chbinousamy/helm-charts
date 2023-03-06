@@ -39,7 +39,7 @@ jobs:
       id: make-commit
       run: |
         git add branch_infos.txt
-        git commit --message "Prepare Branch $BRANCH"
+        git commit --message "Commit in branch $BRANCH"
         echo "{commit}={$(git rev-parse HEAD)}" >> $GITHUB_OUTPUT
     - name: Push new branch
       run: git push origin $BRANCH
