@@ -47,9 +47,9 @@ jobs:
       uses: thomaseizinger/create-pull-request@master
       with:
        github_token: ${{ secrets.GITHUB_TOKEN }}
-       head: $BRANCH
+       head: ${{ inputs.branchType }}/${{ inputs.branchName }}/v${{ inputs.branchRelease }}
        base: main
-       title: $BRANCH into main
+       title: ${{ inputs.branchType }}/${{ inputs.branchName }}/v${{ inputs.branchRelease }} into main
        reviewers: ${{ github.event.issue.user.login }}
        body: |
            Hi!
