@@ -29,7 +29,7 @@ jobs:
         git commit --message "Commit in branch $BRANCH"
         echo "{commit}={$(git rev-parse HEAD)}" >> $GITHUB_OUTPUT
     - name: Push branch
-      run: git push origin $BRANCH
+      run: git push
     - name: Create pull request into main
       uses: thomaseizinger/create-pull-request@master
       with:
