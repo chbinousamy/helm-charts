@@ -41,30 +41,3 @@ jobs:
         git add branch_infos.txt
         git commit --message "Commit in branch $BRANCH"
         echo "{commit}={$(git rev-parse HEAD)}" >> $GITHUB_OUTPUT
-    - name: Push new branch
-      run: git push origin $BRANCH
-    - name: Create pull request into main
-      uses: thomaseizinger/create-pull-request@master
-      with:
-       github_token: ${{ secrets.GITHUB_TOKEN }}
-       head: ${{ inputs.branchType }}/${{ inputs.branchName }}/v${{ inputs.branchRelease }}
-       base: main
-       title: ${{ inputs.branchType }}/${{ inputs.branchName }}/v${{ inputs.branchRelease }} into main
-       reviewers: ${{ github.event.issue.user.login }}
-       body: |
-           Hi!
-           This PR was created in response workflow running.
-           I've updated the release name and code commit: ${{ steps.make-commit.outputs.commit }}.
-#    - name: Create pull request to develop
-#      uses: thomaseizinger/create-pull-request@1.0.0
-#      with:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          github-token: ${{ secrets.GITHUB_TOKEN }}
-#          head: release/v${{ github.event.inputs.versionName }}
-#          base: develop
-#          title: v${{ github.event.inputs.versionName }} into develop
-#          reviewers: ${{ github.event.issue.user.login }}
-#          body: |
-#              Hi!
-#              This PR was created in response workflow running.
-#              I've updated the version name and code commit: ${{ steps.make-commit.outputs.commit }}.
