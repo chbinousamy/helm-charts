@@ -12,9 +12,12 @@ jobs:
     env:
       BRANCH: ${{ github.ref }}
     steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+    - name: Create branch
+      run: git checkout -b $BRANCH
     - name: Initialize mandatory git config
       run: |
-       echo $BRANCH
        git config user.name "GitHub Actions"
        git config user.email noreply@github.com
     - name: Add file with version number and name
