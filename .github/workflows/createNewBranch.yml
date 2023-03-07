@@ -41,3 +41,16 @@ jobs:
         git add branch_infos.txt
         git commit --message "Commit in branch $BRANCH"
         echo "{commit}={$(git rev-parse HEAD)}" >> $GITHUB_OUTPUT
+    - name: Push branch
+      run: git push origin $BRANCH
+    - name: Create pull request into main
+      uses: thomaseizinger/create-pull-request@master
+      with:
+       github_token: ${{ secrets.GITHUB_TOKEN }}
+       head: ${{ github.ref }}
+       base: main
+       title: ${{ github.ref }} into main
+       reviewers: ${{ github.event.issue.user.login }}
+       body: |
+          First commit: ${{ steps.make-commit.outputs.commit }}.
+
