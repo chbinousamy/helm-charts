@@ -47,9 +47,9 @@ jobs:
       uses: thomaseizinger/create-pull-request@master
       with:
        github_token: ${{ secrets.GITHUB_TOKEN }}
-       head: ${{ github.ref }}
+       head: ${{ inputs.branchType }}/${{ inputs.branchName }}/v${{ inputs.branchRelease }}
        base: main
-       title: ${{ github.ref }} into main
+       title: ${{ inputs.branchType }}/${{ inputs.branchName }}/v${{ inputs.branchRelease }} into main
        reviewers: ${{ github.event.issue.user.login }}
        body: |
           First commit: ${{ steps.make-commit.outputs.commit }}.
