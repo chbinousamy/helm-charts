@@ -10,7 +10,7 @@ jobs:
   commitPushPullRequest:
     runs-on: ubuntu-latest
     env:
-      BRANCH: ${{ github.ref#refs/heads/ }}
+      BRANCH: ${{ github.ref }}
     steps:
     - name: Initialize mandatory git config
       run: |
